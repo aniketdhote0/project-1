@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            margin-left: 650px;
+        }
+        div{
+            width: 25vw; height: 60vh;
+            border: 5px solid black;
+            margin: auto;
+            border-radius: 15px;
+            background-color: lightblue;
+        }
+        input{
+           border: 3px solid gray;
+           width: 20vw; height: 5vh;
+           margin-top: 20px;
+           margin-left: 4vh;
+           border-radius: 5px;
+           font-size: xx-large;
+           
+        }
+        table{
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+        button{
+            width: 60px;height: 60px;
+            font-size: x-large;
+        }
+        .c{
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>CALCULATOR</h1>
+    <div id="contener">
+       <input type="text" id="scr">
+        <table cellpadding ="2px" cellspacing="5px">
+            <tr>
+                <td><button class="c">AC</button></td><td><button class="c">%</button></td><td><button class="c">/</button></td><td><button class="c">*</button></td>
+            </tr>
+            <tr>
+                <td><button>7</button></td><td><button>8</button></td><td><button>9</button></td><td><button class="c">+</button></td>
+            </tr>
+            <tr>
+                <td><button>4</button></td><td><button>5</button></td><td><button>6</button></td><td><button class="c">-</button></td>
+            </tr>
+            <tr>
+                <td><button>1</button></td><td><button>2</button></td><td><button>3</button></td><td><button class="c">=</button></td>
+            </tr>
+            <tr>
+                <td><button>00</button></td><td><button>0</button></td><td><button>.</button></td><td><button class="c">BS</button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        let dis = document.getElementById('scr');
+        dis.value = ' ';
+        let btn = document.getElementsByTagName('button')
+
+        for(let btns of btn){
+            let val = btns.innerText;
+            btns.addEventListener('click',() => {
+        
+            if(val == 'AC'){
+                dis.value = ' ';
+            }else if(val == '='){
+                dis.value = eval(dis.value);
+            }else {
+                dis.value += val;
+            }
+        });
+        }
+
+    </script>
+</body>
+</html>
